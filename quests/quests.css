@@ -1,24 +1,4 @@
-:root {
-    --default-background-color: rgb(48, 48, 48);
-
-    --default-font-color: rgb(240, 240, 240);
-    --default-font-family: Arial, Helvetica, sans-serif;
-    --default-font-size: 16px;
-
-    --default-header-background-color: rgb(0, 0, 0);
-    
-    --default-header-border-color-1: rgb(72, 72, 72);
-    --default-header-border-color-2: rgb(46, 46, 46);
-
-    --default-header-height: 58px;
-}
-
-body {
-    background-color: var(--default-background-color);
-    color: var(--default-font-color);
-    font-family: var(--default-font-family);
-    font-size: var(--default-font-size);
-}
+.app > .content .quest .duration { width: 104px; }
 
 .app > .header {
     box-shadow: 0 1px 1px var(--default-header-border-color-1), 0 2px 1px var(--default-header-border-color-2);
@@ -34,34 +14,3 @@ body {
     margin-right: 0.5rem;
     margin-top: auto;
 }
-
-/* class name/ideas inspired by bootstrap (https://getbootstrap.com) */
-
-h1, h2, h3, h4, h5, h6 { margin: 0; }
-
-.container-flex {
-    display: flex;
-    height: 100vh;
-    max-height: 100vh;
-}
-
-.flex { display: flex; }
-.flex-column { flex-direction: column; }
-.flex-grow { flex-grow: 1; }
-
-.h1 { font-size: 2.5rem; }
-.h2 { font-size: 2rem; }
-.h3 { font-size: 1.75rem; }
-.h4 { font-size: 1.5rem; }
-.h5 { font-size: 1.25rem; }
-.h6 { font-size: 1rem; }
-
-.m-0 { margin: 0; }
-.ml-1 { margin-left: 0.25rem !important; }
-.ml-2 { margin-left: 0.5rem !important; }
-.ml-3 { margin-left: 1rem !important; }
-.ml-4 { margin-left: 1.5rem !important; }
-.ml-5 { margin-left: 3rem !important; }
-
-.overflow-y-auto { overflow-y: auto; }
-.pre { white-space: pre; }
