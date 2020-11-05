@@ -1,34 +1,57 @@
 ( function () {
-    if ( !window.location.href.includes( 'localhost' ) ) return;
+    class Application {
+        constructor () {
+            Promise.all( [
+                this.fetchJson( './quests.json' ),
+                this.fetchJson( '../packs/packs.json' ),
+                this.fetchJson( '../sagas/sagas.json' )
+            ] ).then( ( [ quests, packs, sagas ] ) => {
+                this.quests = quests.map( Quest.builder );
+                this.packs = packs;
+                this.sagas = sagas;
 
-    const resources = { [ window.location.href ]: null };
-
-    document.querySelectorAll( 'link[href], script[src]' ).forEach( resource => {
-        resources[ resource.href || resource.src ] = null;
-    } );
-
-    const urls = Object.keys( resources );
-
-    function detectFileChanges ( index = 0 ) {
-        if ( index < urls.length ) {
-            fetch( urls[ index ], { method: 'HEAD', cache: 'no-cache' } ).then( xhr => {
-                const etag = xhr.headers.get( 'ETag' );
-                let previousTag = resources[ urls[ index ] ];
-
-                if ( !previousTag ) {
-                    previousTag = resources[ urls[ index ] ] = etag;
-                }
-                
-                if ( previousTag !== etag ) {
-                    window.location.reload();
-                } else {
-                    detectFileChanges( ++index );
-                }
+                this.initialize();
             } );
-        } else {
-            setTimeout( detectFileChanges, 300 );
+        }
+
+        fetchJson ( url ) {
+            return fetch( url, { cache: 'no-cache' } ).then( xhr => xhr.json() );
+        }
+
+        initialize () {
+            // console.log( this.quests );
         }
     }
 
-    detectFileChanges();
-} )();
+    new Application();
+
+    class Quest {
+        static builder = data => new Quest( data );
+
+        constructor ( data ) {
+            [ 'id', 'name', 'duration' ].forEach( key => this[ key ] = data[ key ] );
+            
+            [ 'heroic', 'epic' ].forEach( type =>
+                data[ type ] ? this[ type ] = QuestType.builder( data[ type ] ) : null
+            );
+        }
+    }
+
+    class QuestType {
+        static builder = data => new QuestType( data );
+
+        constructor ( data ) {
+            [ 'casual', 'normal', 'hard', 'elite' ].forEach( difficulty =>
+                data[ difficulty ] ? this[ difficulty ] = QuestDifficulty.builder( data[ difficulty ] ) : null
+            );
+        }
+    }
+
+    class QuestDifficulty {
+        static builder = data => new QuestDifficulty( data );
+
+        constructor ( data ) {
+            [ 'level', 'xp' ].forEach( key => this[ key ] = data[ key ] );
+        }
+    }
+}() );

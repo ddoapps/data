@@ -1,5 +1,9 @@
 :root {
-    --default-app-header-height: 58px;
+    --color-black: rgb(0, 0, 0);
+    --color-black-1: rgb(24, 24, 24);
+    --color-white: rgb(240, 240, 240);
+
+    --default-app-header-height: 62px;
     --default-font-family: Arial, Helvetica, sans-serif;
     --default-font-size: 16px;
 }
@@ -16,8 +20,19 @@ body {
 
 h1, h2, h3, h4, h5, h6 { margin: 0; }
 
+.app .app-content {
+    height: calc(100vh - var(--default-app-header-height));
+    max-height: calc(100vh - var(--default-app-header-height));
+
+    background-color: var(--color-black-1);
+    overflow-y: auto;
+}
+
 .app .app-header {
     height: var(--default-app-header-height);
+
+    background-color: var(--color-black);
+    color: var(--color-white);
 }
 
 .app .app-header .logo {
