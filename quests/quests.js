@@ -38,7 +38,7 @@
                 const htmlQuest = this.templates.quest.content.cloneNode( true ).querySelector( 'article' );
 
                 htmlQuest.dataset.id = quest.id;
-                htmlQuest.querySelector( '.name' ).innerText = quest.name;
+                htmlQuest.querySelector( '.name' ).value = quest.name;
 
                 allQuests.appendChild( htmlQuest );
             } );
