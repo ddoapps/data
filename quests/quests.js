@@ -12,6 +12,12 @@
 
                 this.initialize();
             } );
+
+            this.templates = [ ...document.querySelectorAll( 'template[data-id]' ) ].reduce( ( all, template ) => {
+                all[ template.dataset.id ] = template;
+                
+                return all;
+            }, {});
         }
 
         fetchJson ( url ) {
@@ -19,7 +25,25 @@
         }
 
         initialize () {
-            // console.log( this.quests );
+            this.rebuildQuestDisplay();
+        }
+
+        rebuildQuestDisplay () {
+            const appContent = document.querySelector( '.app-content' );
+            const allQuests = document.createDocumentFragment();
+
+            appContent.innerHTML = '';
+
+            this.quests.forEach( quest => {
+                const htmlQuest = this.templates.quest.content.cloneNode( true ).querySelector( 'article' );
+
+                htmlQuest.dataset.id = quest.id;
+                htmlQuest.querySelector( '.name' ).innerText = quest.name;
+
+                allQuests.appendChild( htmlQuest );
+            } );
+
+            appContent.appendChild( allQuests );
         }
     }
 

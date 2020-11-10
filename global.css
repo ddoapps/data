@@ -56,5 +56,7 @@ h1, h2, h3, h4, h5, h6 { margin: 0; }
 .h5 { font-size: 0.875rem; }
 .h6 { font-size: 0.75rem; }
 
+.indent-text { margin-left: 0.5rem; }
+
 .vertical-align-middle { vertical-align: middle; }
 .vertical-align-top { vertical-align: top; }

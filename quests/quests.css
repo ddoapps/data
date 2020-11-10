@@ -1,0 +1,26 @@
+.quest {
+    background-color: var(--color-white);
+    border: 1px solid var(--color-white);
+
+
+
+
+
+
+
+
+
+
+    --temp: 'REMOVE THE FOLLOWING LATER';
+    margin: 4px;
+
+    min-width: calc(33vw - 10px);
+    min-height: 200px;
+
+    
+}
+
+.quest .quest-header {
+    background-color: var(--color-black);
+    color: var(--color-white);
+}
