@@ -1,6 +1,6 @@
 :root {
     --color-black: rgb(0, 0, 0);
-    --color-black-1: rgb(24, 24, 24);
+    --color-black-1: rgb(48, 48, 48);
     --color-white: rgb(240, 240, 240);
 
     --default-app-header-height: 62px;
@@ -51,6 +51,10 @@ h1, h2, h3, h4, h5, h6 { margin: 0; }
     line-height: var(--default-app-header-height);
 }
 
+.bold { font-weight: bold; }
+.border-bottom-1 { border-bottom: 1px solid var(--color-white); }
+.border-right-1 { border-right: 1px solid var(--color-white); }
+
 .container .col-1, .container .col-2, .container .col-3, .container .col-4
 , .container .col-5, .container .col-6, .container .col-7, .container .col-8
 , .container .col-9, .container .col-10, .container .col-11, .container .col-12 {
@@ -79,5 +83,11 @@ h1, h2, h3, h4, h5, h6 { margin: 0; }
 .h4 { font-size: 1.125rem; }
 .h5 { font-size: 0.875rem; }
 .h6 { font-size: 0.75rem; }
+.line-height-1-5 { line-height: 1.5; }
+.line-height-2 { line-height: 2; }
+.push-left { margin-right: 8px; }
+.push-right { margin-left: 8px; }
+.text-center { text-align: center; }
+.text-right { text-align: right; }
 .vertical-align-middle { vertical-align: middle; }
 .vertical-align-top { vertical-align: top; }

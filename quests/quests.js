@@ -34,7 +34,7 @@
 
             appContent.innerHTML = '';
 
-            this.quests.forEach( quest => {
+            this.quests.slice( 0, 4 ).forEach( quest => {
                 const htmlQuest = this.templates.quest.content.cloneNode( true ).querySelector( '.quest' );
 
                 htmlQuest.dataset.id = quest.id;
