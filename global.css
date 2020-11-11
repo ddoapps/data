@@ -8,19 +8,21 @@
     --default-font-size: 16px;
 }
 
+article, section { display: inline-block; }
+
 body {
     min-width: 100vw;
     max-width: 100vw;
     min-height: 100vh;
-
-    font-family: var(--default-font-family);
-    font-size: var(--default-font-size);
     margin: 0;
 }
 
-h1, h2, h3, h4, h5, h6 { margin: 0; }
+body, input, select {
+    font-family: var(--default-font-family);
+    font-size: var(--default-font-size);
+}
 
-input.indent-text { text-indent: 0.5rem; }
+h1, h2, h3, h4, h5, h6 { margin: 0; }
 
 .app .app-content {
     height: calc(100vh - var(--default-app-header-height));
@@ -49,30 +51,33 @@ input.indent-text { text-indent: 0.5rem; }
     line-height: var(--default-app-header-height);
 }
 
-.container { width: inherit; }
-.container, .container .row, .container[class^='col-'] { display: inline-block; }
-.container .row { width: 100%; }
-.container .row .col-1 { width: 8.334%; }
-.container .row .col-2 { width: 16.667%; }
-.container .row .col-3 { width: 25%; }
-.container .row .col-4 { width: 33.334%; }
-.container .row .col-5 { width: 41.667%; }
-.container .row .col-6 { width: 50%; }
-.container .row .col-7 { width: 58.333%; }
-.container .row .col-8 { width: 66.666%; }
-.container .row .col-9 { width: 75%; }
-.container .row .col-10 { width: 83.333%; }
-.container .row .col-11 { width: 91.666%; }
-.container .row .col-12 { width: 100% }
+.container .col-1, .container .col-2, .container .col-3, .container .col-4
+, .container .col-5, .container .col-6, .container .col-7, .container .col-8
+, .container .col-9, .container .col-10, .container .col-11, .container .col-12 {
+    display: inline-block;
+}
 
+.container { display: block; }
+.container .col-1 { width: 8.3333%; }
+.container .col-11 { width: 91.6667%; }
+.container .col-2 { width: 16.6667%; }
+.container .col-10 { width: 83.3333%; }
+.container .col-3 { width: 25%; }
+.container .col-9 { width: 75%; }
+.container .col-4 { width: 33.3333%; }
+.container .col-8 { width: 66.6667%; }
+.container .col-5 { width: 41.6667%; }
+.container .col-7 { width: 58.3333%; }
+.container .col-6 { width: 50%; }
+.container .col-12 { width: 100%; }
+.container .row { display: block; }
 .d-inline-block { display: inline-block; }
-
+.h0 { font-size: 0; }
 .h1 { font-size: 2.25rem; }
 .h2 { font-size: 1.875rem; }
 .h3 { font-size: 1.5rem; }
 .h4 { font-size: 1.125rem; }
 .h5 { font-size: 0.875rem; }
 .h6 { font-size: 0.75rem; }
-
 .vertical-align-middle { vertical-align: middle; }
 .vertical-align-top { vertical-align: top; }

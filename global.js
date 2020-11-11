@@ -1,3 +1,6 @@
+NodeList.prototype.forEach = Array.prototype.forEach;
+NodeList.prototype.reduce = Array.prototype.reduce;
+
 ( function () {
     if ( !window.location.href.includes( 'localhost' ) ) return;
 

@@ -13,11 +13,11 @@
                 this.initialize();
             } );
 
-            this.templates = [ ...document.querySelectorAll( 'template[data-id]' ) ].reduce( ( all, template ) => {
+            this.templates = document.querySelectorAll( 'template[data-id]' ).reduce( ( all, template ) => {
                 all[ template.dataset.id ] = template;
                 
                 return all;
-            }, {});
+            }, {} );
         }
 
         fetchJson ( url ) {
@@ -35,10 +35,27 @@
             appContent.innerHTML = '';
 
             this.quests.forEach( quest => {
-                const htmlQuest = this.templates.quest.content.cloneNode( true ).querySelector( 'article' );
+                const htmlQuest = this.templates.quest.content.cloneNode( true ).querySelector( '.quest' );
 
                 htmlQuest.dataset.id = quest.id;
-                htmlQuest.querySelector( '.name' ).value = quest.name;
+                htmlQuest.querySelector( '.name' ).innerText = quest.name;
+                htmlQuest.querySelector( 'input.name' ).value = quest.name;
+                htmlQuest.querySelector( '.duration' ).value = quest.duration;
+
+                [ 'heroic', 'epic' ].forEach( questType => {
+                    if ( quest[ questType ] ) {
+                        const htmlQuestType = htmlQuest.querySelector( `.${questType}` );
+
+                        [ 'casual', 'normal', 'hard', 'elite' ].forEach( questDifficulty => {
+                            const difficulty = quest[ questType ][ questDifficulty ];
+
+                            if ( difficulty ) {
+                                htmlQuestType.querySelector( `.${questDifficulty} .level` ).value = difficulty.level;
+                                htmlQuestType.querySelector( `.${questDifficulty} .xp` ).value = difficulty.xp;
+                            }
+                        } );
+                    }
+                } );
 
                 allQuests.appendChild( htmlQuest );
             } );

@@ -23,17 +23,98 @@
             </h1>
         </header>
 
-        <main class="app-content"></main>
+        <main class="app-content h0"></main>
 
         <template data-id="quest">
             <article class="quest container" data-id="">
-                <header class="header row">
-                    <input type="text" class="name h4 indent-text">
-                </header>
+                <span class="row h3 label name"></span>
 
-                <section>
+                <span class="col-2 h5 label">Name: </span>
+                <span class="col-10"><input type="text" class="name h5"></span>
 
-                </section>
+                <span class="col-2 h5 label">Duration: </span>
+                <span class="col-10">
+                    <select class="duration h5">
+                        <option></option>
+                        <option value="very short">Very Short</option>
+                        <option value="short">Short</option>
+                        <option value="medium">Medium</option>
+                        <option value="long">Long</option>
+                        <option value="very long">Very Long</option>
+                    </select>
+                </span>
+
+                <span class="heroic">
+                    <span class="row h4 label">Heroic</span>
+                    <span class="col-3 h4 label">Casual</span>
+                    <span class="col-3 h4 label">Normal</span>
+                    <span class="col-3 h4 label">Hard</span>
+                    <span class="col-3 h4 label">Elite</span>
+
+                    <span class="col-3 casual">
+                        <span class="col-6 h5 label">Level: </span>
+                        <span class="col-6"><input type="number" value="0" min="0" max="40" class="level h5"></span>
+                        <span class="col-6 h5 label">XP: </span>
+                        <span class="col-6"><input type="number" value="0" min="0" max="999999" class="xp h5"></span>
+                    </span>
+
+                    <span class="col-3 normal">
+                        <span class="col-6 h5 label">Level: </span>
+                        <span class="col-6"><input type="number" value="0" min="0" max="40" class="level h5"></span>
+                        <span class="col-6 h5 label">XP: </span>
+                        <span class="col-6"><input type="number" value="0" min="0" max="999999" class="xp h5"></span>
+                    </span>
+
+                    <span class="col-3 hard">
+                        <span class="col-6 h5 label">Level: </span>
+                        <span class="col-6"><input type="number" value="0" min="0" max="40" class="level h5"></span>
+                        <span class="col-6 h5 label">XP: </span>
+                        <span class="col-6"><input type="number" value="0" min="0" max="999999" class="xp h5"></span>
+                    </span>
+
+                    <span class="col-3 elite">
+                        <span class="col-6 h5 label">Level: </span>
+                        <span class="col-6"><input type="number" value="0" min="0" max="40" class="level h5"></span>
+                        <span class="col-6 h5 label">XP: </span>
+                        <span class="col-6"><input type="number" value="0" min="0" max="999999" class="xp h5"></span>
+                    </span>
+                </span>
+
+                <span class="epic">
+                    <span class="row h4 label">Epic</span>
+                    <span class="col-3 h4 label">Casual</span>
+                    <span class="col-3 h4 label">Normal</span>
+                    <span class="col-3 h4 label">Hard</span>
+                    <span class="col-3 h4 label">Elite</span>
+
+                    <span class="col-3 casual">
+                        <span class="col-6 h5 label">Level: </span>
+                        <span class="col-6"><input type="number" value="0" min="0" max="40" class="level h5"></span>
+                        <span class="col-6 h5 label">XP: </span>
+                        <span class="col-6"><input type="number" value="0" min="0" max="999999" class="xp h5"></span>
+                    </span>
+
+                    <span class="col-3 normal">
+                        <span class="col-6 h5 label">Level: </span>
+                        <span class="col-6"><input type="number" value="0" min="0" max="40" class="level h5"></span>
+                        <span class="col-6 h5 label">XP: </span>
+                        <span class="col-6"><input type="number" value="0" min="0" max="999999" class="xp h5"></span>
+                    </span>
+
+                    <span class="col-3 hard">
+                        <span class="col-6 h5 label">Level: </span>
+                        <span class="col-6"><input type="number" value="0" min="0" max="40" class="level h5"></span>
+                        <span class="col-6 h5 label">XP: </span>
+                        <span class="col-6"><input type="number" value="0" min="0" max="999999" class="xp h5"></span>
+                    </span>
+
+                    <span class="col-3 elite">
+                        <span class="col-6 h5 label">Level: </span>
+                        <span class="col-6"><input type="number" value="0" min="0" max="40" class="level h5"></span>
+                        <span class="col-6 h5 label">XP: </span>
+                        <span class="col-6"><input type="number" value="0" min="0" max="999999" class="xp h5"></span>
+                    </span>
+                </span>
             </article>
         </template>
     </body>
