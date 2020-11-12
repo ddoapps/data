@@ -20,47 +20,78 @@
             }, {} );
         }
 
+        bindOnFilterInput () {
+            let throttle = null;
+
+            document.querySelector( '#filter' ).addEventListener( 'input', e => {
+                clearTimeout( throttle );
+
+                throttle = setTimeout( () => {
+                    this.filteredQuests = this.quests.filter( quest => !e.target.value || quest.name.toLowerCase().includes( e.target.value.toLowerCase() ) );
+
+                    this.rebuildQuestSelect();
+                }, 300 );
+            } );
+        }
+
+        bindOnQuestSelection () {
+            let throttle = null;
+
+            document.querySelector( '#quests' ).addEventListener( 'input', e => {
+                clearTimeout( throttle );
+
+                throttle = setTimeout( () => this.displayExistingQuestById( e.target.value ), 300 );
+            } );
+        }
+
+        displayExistingQuestById ( id ) {
+            const questElement = document.querySelector( '.display .quest' );
+            const quest = this.quests.find( it => it.id === id ) || new Quest( {} );
+
+            questElement.querySelector( '.name' ).innerText = quest.name || '';
+            questElement.querySelector( 'input.name' ).value = quest.name || '';
+            questElement.querySelector( '.duration' ).value = quest.duration || '';
+
+            [ 'heroic', 'epic' ].forEach( type => {
+                const questType = quest[ type ] || new QuestType( {} );
+
+                [ 'casual', 'normal', 'hard', 'elite' ].forEach( difficulty => {
+                    const questDifficulty = questType[ difficulty ] || new QuestDifficulty( {} );
+
+                    questElement.querySelector( `.${type} .${difficulty} .level` ).value = questDifficulty.level || 0;
+                    questElement.querySelector( `.${type} .${difficulty} .xp` ).value = questDifficulty.xp || 0;
+                } );
+            } );
+        }
+
         fetchJson ( url ) {
             return fetch( url, { cache: 'no-cache' } ).then( xhr => xhr.json() );
         }
 
         initialize () {
-            this.rebuildQuestDisplay();
+            this.filteredQuests = this.quests;
+
+            this.rebuildQuestSelect();
+            this.bindOnFilterInput();
+            this.bindOnQuestSelection();
         }
 
-        rebuildQuestDisplay () {
-            const appContent = document.querySelector( '.app-content' );
-            const allQuests = document.createDocumentFragment();
+        rebuildQuestSelect () {
+            const questSelect = document.querySelector( '#quests' );
+            const fragment = document.createDocumentFragment();
 
-            appContent.innerHTML = '';
+            questSelect.innerHTML = '<option value=""></option>';
 
-            this.quests.slice( 0, 4 ).forEach( quest => {
-                const htmlQuest = this.templates.quest.content.cloneNode( true ).querySelector( '.quest' );
+            this.filteredQuests.forEach( quest => {
+                const questElement = document.createElement( 'option' );
 
-                htmlQuest.dataset.id = quest.id;
-                htmlQuest.querySelector( '.name' ).innerText = quest.name;
-                htmlQuest.querySelector( 'input.name' ).value = quest.name;
-                htmlQuest.querySelector( '.duration' ).value = quest.duration;
+                questElement.value = quest.id;
+                questElement.innerText = quest.name;
 
-                [ 'heroic', 'epic' ].forEach( questType => {
-                    if ( quest[ questType ] ) {
-                        const htmlQuestType = htmlQuest.querySelector( `.${questType}` );
-
-                        [ 'casual', 'normal', 'hard', 'elite' ].forEach( questDifficulty => {
-                            const difficulty = quest[ questType ][ questDifficulty ];
-
-                            if ( difficulty ) {
-                                htmlQuestType.querySelector( `.${questDifficulty} .level` ).value = difficulty.level;
-                                htmlQuestType.querySelector( `.${questDifficulty} .xp` ).value = difficulty.xp;
-                            }
-                        } );
-                    }
-                } );
-
-                allQuests.appendChild( htmlQuest );
+                fragment.appendChild( questElement );
             } );
 
-            appContent.appendChild( allQuests );
+            questSelect.appendChild( fragment );
         }
     }
 

@@ -1,8 +1,6 @@
 .quest {
     background-color: var(--color-white);
     border: 1px solid var(--color-white);
-    margin-top: 12px;
-    margin-right: 12px;
     width: 660px;
 }
 
@@ -17,3 +15,16 @@
     background-color: var(--color-black);
     color: var(--color-white);
 }
+
+#quests {
+    height: calc(100vh - 111px);
+    min-width: 25vw;
+}
+
+#quests option {
+    padding-top: 4px;
+    padding-right: 8px;
+    text-indent: 4px;
+}
+
+#quests option:nth-child(2n) { background-color: var(--color-white-1); }

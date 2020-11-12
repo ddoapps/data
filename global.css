@@ -2,6 +2,7 @@
     --color-black: rgb(0, 0, 0);
     --color-black-1: rgb(48, 48, 48);
     --color-white: rgb(240, 240, 240);
+    --color-white-1: rgb(225, 225, 225);
 
     --default-app-header-height: 62px;
     --default-font-family: Arial, Helvetica, sans-serif;
@@ -29,6 +30,7 @@ h1, h2, h3, h4, h5, h6 { margin: 0; }
     max-height: calc(100vh - var(--default-app-header-height));
 
     background-color: var(--color-black-1);
+    color: var(--color-white);
     overflow-y: auto;
 }
 
@@ -85,6 +87,7 @@ h1, h2, h3, h4, h5, h6 { margin: 0; }
 .h6 { font-size: 0.75rem; }
 .line-height-1-5 { line-height: 1.5; }
 .line-height-2 { line-height: 2; }
+.push-down { margin-top: 8px; }
 .push-left { margin-right: 8px; }
 .push-right { margin-left: 8px; }
 .text-center { text-align: center; }
