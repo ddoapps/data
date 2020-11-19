@@ -1,7 +1,13 @@
+.new-quest .quest > .row:first-child { display: none; }
+
 .quest {
     background-color: var(--color-white);
     border: 1px solid var(--color-white);
     width: 660px;
+}
+
+.quest input {
+    text-indent: 4px;
 }
 
 .quest .difficulty {

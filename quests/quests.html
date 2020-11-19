@@ -29,6 +29,7 @@
                     <div>
                         <label class="h4 line-height-1-5 push-right">Filter: </label>
                         <input type="text" value="" id="filter" class="h4 line-height-1-5 push-right">
+                        <button id="export" class="h4 line-height-1-5 push-right">Export Quests</button>
                     </div>
 
                     <div>
@@ -39,200 +40,213 @@
                 </section>
 
                 <section class="display col-8 vertical-align-top">
-                    <article class="quest container d-inline-block" data-id="">
-                        <span class="row border-bottom-1 h3 label line-height-1-5">
-                            <span class="name push-right"></span>
-                        </span>
-        
-                        <span class="col-6">
-                            <span class="col-3 bold border-bottom-1 h5 label line-height-2 text-right">
-                                <span class="push-left">Name: </span>
-                            </span>
-            
-                            <span class="col-9 border-bottom-1">
-                                <input type="text" class="name h5 push-right">
-                            </span>
-            
-                            <span class="col-3 bold border-bottom-1 h5 label line-height-2 text-right">
-                                <span class="push-left">Duration: </span>
-                            </span>
-            
-                            <span class="col-9 border-bottom-1">
-                                <select class="duration h5 push-right">
-                                    <option></option>
-                                    <option value="very short">Very Short</option>
-                                    <option value="short">Short</option>
-                                    <option value="medium">Medium</option>
-                                    <option value="long">Long</option>
-                                    <option value="very long">Very Long</option>
-                                </select>
-                            </span>
-                        </span>
-        
-                        <span class="heroic">
-                            <span class="row bold border-bottom-1 h4 label line-height-2 text-center">Heroic</span>
-        
-                            <span class="bold border-bottom-1 border-right-1 difficulty h4 label line-height-2 text-center">Casual</span>
-                            <span class="bold border-bottom-1 border-right-1 difficulty h4 label line-height-2 text-center">Normal</span>
-                            <span class="bold border-bottom-1 border-right-1 difficulty h4 label line-height-2 text-center">Hard</span>
-                            <span class="bold border-bottom-1 border-right-1 difficulty h4 label line-height-2 text-center last">Elite</span>
-        
-                            <span class="col-3 casual">
-                                <span class="col-4 bold border-bottom-1 h5 label line-height-2 text-right">
-                                    <span class="push-left">Level: </span>
-                                </span>
-        
-                                <span class="col-8 border-bottom-1">
-                                    <input type="number" value="0" min="0" max="40" class="level h5 push-right">
-                                </span>
-        
-                                <span class="col-4 bold border-bottom-1 h5 label line-height-2 text-right">
-                                    <span class="push-left">XP: </span>
-                                </span>
-        
-                                <span class="col-8 border-bottom-1">
-                                    <input type="number" value="0" min="0" max="999999" class="xp h5 push-right">
-                                </span>
-                            </span>
-        
-                            <span class="col-3 normal">
-                                <span class="col-4 bold border-bottom-1 h5 label line-height-2 text-right">
-                                    <span class="push-left">Level: </span>
-                                </span>
-        
-                                <span class="col-8 border-bottom-1">
-                                    <input type="number" value="0" min="0" max="40" class="level h5 push-right">
-                                </span>
-        
-                                <span class="col-4 bold border-bottom-1 h5 label line-height-2 text-right">
-                                    <span class="push-left">XP: </span>
-                                </span>
-        
-                                <span class="col-8 border-bottom-1">
-                                    <input type="number" value="0" min="0" max="999999" class="xp h5 push-right">
-                                </span>
-                            </span>
-        
-                            <span class="col-3 hard">
-                                <span class="col-4 bold border-bottom-1 h5 label line-height-2 text-right">
-                                    <span class="push-left">Level: </span>
-                                </span>
-        
-                                <span class="col-8 border-bottom-1">
-                                    <input type="number" value="0" min="0" max="40" class="level h5 push-right">
-                                </span>
-        
-                                <span class="col-4 bold border-bottom-1 h5 label line-height-2 text-right">
-                                    <span class="push-left">XP: </span>
-                                </span>
-        
-                                <span class="col-8 border-bottom-1">
-                                    <input type="number" value="0" min="0" max="999999" class="xp h5 push-right">
-                                </span>
-                            </span>
-        
-                            <span class="col-3 elite">
-                                <span class="col-4 bold border-bottom-1 h5 label line-height-2 text-right">
-                                    <span class="push-left">Level: </span>
-                                </span>
-        
-                                <span class="col-8 border-bottom-1">
-                                    <input type="number" value="0" min="0" max="40" class="level h5 push-right">
-                                </span>
-        
-                                <span class="col-4 bold border-bottom-1 h5 label line-height-2 text-right">
-                                    <span class="push-left">XP: </span>
-                                </span>
-        
-                                <span class="col-8 border-bottom-1">
-                                    <input type="number" value="0" min="0" max="999999" class="xp h5 push-right">
-                                </span>
-                            </span>
-                        </span>
-        
-                        <span class="epic">
-                            <span class="row bold border-bottom-1 h4 label line-height-2 text-center">Epic</span>
-        
-                            <span class="bold border-bottom-1 border-right-1 difficulty h4 label line-height-2 text-center">Casual</span>
-                            <span class="bold border-bottom-1 border-right-1 difficulty h4 label line-height-2 text-center">Normal</span>
-                            <span class="bold border-bottom-1 border-right-1 difficulty h4 label line-height-2 text-center">Hard</span>
-                            <span class="bold border-bottom-1 border-right-1 difficulty h4 label line-height-2 text-center last">Elite</span>
-        
-                            <span class="col-3 casual">
-                                <span class="col-4 bold h5 label line-height-2 text-right">
-                                    <span class="push-left">Level: </span>
-                                </span>
-        
-                                <span class="col-8">
-                                    <input type="number" value="0" min="0" max="40" class="level h5 push-right">
-                                </span>
-        
-                                <span class="col-4 bold h5 label line-height-2 text-right">
-                                    <span class="push-left">XP: </span>
-                                </span>
-        
-                                <span class="col-8">
-                                    <input type="number" value="0" min="0" max="999999" class="xp h5 push-right">
-                                </span>
-                            </span>
-        
-                            <span class="col-3 normal">
-                                <span class="col-4 bold h5 label line-height-2 text-right">
-                                    <span class="push-left">Level: </span>
-                                </span>
-        
-                                <span class="col-8">
-                                    <input type="number" value="0" min="0" max="40" class="level h5 push-right">
-                                </span>
-        
-                                <span class="col-4 bold h5 label line-height-2 text-right">
-                                    <span class="push-left">XP: </span>
-                                </span>
-        
-                                <span class="col-8">
-                                    <input type="number" value="0" min="0" max="999999" class="xp h5 push-right">
-                                </span>
-                            </span>
-        
-                            <span class="col-3 hard">
-                                <span class="col-4 bold h5 label line-height-2 text-right">
-                                    <span class="push-left">Level: </span>
-                                </span>
-        
-                                <span class="col-8">
-                                    <input type="number" value="0" min="0" max="40" class="level h5 push-right">
-                                </span>
-        
-                                <span class="col-4 bold h5 label line-height-2 text-right">
-                                    <span class="push-left">XP: </span>
-                                </span>
-        
-                                <span class="col-8">
-                                    <input type="number" value="0" min="0" max="999999" class="xp h5 push-right">
-                                </span>
-                            </span>
-        
-                            <span class="col-3 elite">
-                                <span class="col-4 bold h5 label line-height-2 text-right">
-                                    <span class="push-left">Level: </span>
-                                </span>
-        
-                                <span class="col-8">
-                                    <input type="number" value="0" min="0" max="40" class="level h5 push-right">
-                                </span>
-        
-                                <span class="col-4 bold h5 label line-height-2 text-right">
-                                    <span class="push-left">XP: </span>
-                                </span>
-        
-                                <span class="col-8">
-                                    <input type="number" value="0" min="0" max="999999" class="xp h5 push-right">
-                                </span>
-                            </span>
-                        </span>
-                    </article>
+                    <span class="existing-quest col-12"></span>
+
+                    <p class="col-12 h3 pt-1">Add New Quest</p>
+
+                    <span class="new-quest col-12"></span>
+
+                    <div class="col-12 push-down">
+                        <button class="add-quest">Add Quest</button>
+                        <button class="clear-quest push-right">Clear</button>
+                    </div>
                 </section>
             </article>
         </main>
+
+        <template data-id="quest">
+            <article class="quest container d-inline-block" data-id="">
+                <span class="row border-bottom-1 h3 label line-height-1-5">
+                    <span class="name push-right"></span>
+                </span>
+
+                <span class="col-6">
+                    <span class="col-3 bold border-bottom-1 h5 label line-height-2 text-right">
+                        <span class="push-left">Name: </span>
+                    </span>
+    
+                    <span class="col-9 border-bottom-1">
+                        <input type="text" class="name h5 push-right">
+                    </span>
+    
+                    <span class="col-3 bold border-bottom-1 h5 label line-height-2 text-right">
+                        <span class="push-left">Duration: </span>
+                    </span>
+    
+                    <span class="col-9 border-bottom-1">
+                        <select class="duration h5 push-right">
+                            <option></option>
+                            <option value="very short">Very Short</option>
+                            <option value="short">Short</option>
+                            <option value="medium">Medium</option>
+                            <option value="long">Long</option>
+                            <option value="very long">Very Long</option>
+                        </select>
+                    </span>
+                </span>
+
+                <span class="heroic">
+                    <span class="row bold border-bottom-1 h4 label line-height-2 text-center">Heroic</span>
+
+                    <span class="bold border-bottom-1 border-right-1 difficulty h4 label line-height-2 text-center">Casual</span>
+                    <span class="bold border-bottom-1 border-right-1 difficulty h4 label line-height-2 text-center">Normal</span>
+                    <span class="bold border-bottom-1 border-right-1 difficulty h4 label line-height-2 text-center">Hard</span>
+                    <span class="bold border-bottom-1 border-right-1 difficulty h4 label line-height-2 text-center last">Elite</span>
+
+                    <span class="col-3 casual">
+                        <span class="col-4 bold border-bottom-1 h5 label line-height-2 text-right">
+                            <span class="push-left">Level: </span>
+                        </span>
+
+                        <span class="col-8 border-bottom-1">
+                            <input type="number" value="-1" min="-1" max="40" class="level h5 push-right">
+                        </span>
+
+                        <span class="col-4 bold border-bottom-1 h5 label line-height-2 text-right">
+                            <span class="push-left">XP: </span>
+                        </span>
+
+                        <span class="col-8 border-bottom-1">
+                            <input type="number" value="-1" min="-1" max="999999" class="xp h5 push-right">
+                        </span>
+                    </span>
+
+                    <span class="col-3 normal">
+                        <span class="col-4 bold border-bottom-1 h5 label line-height-2 text-right">
+                            <span class="push-left">Level: </span>
+                        </span>
+
+                        <span class="col-8 border-bottom-1">
+                            <input type="number" value="-1" min="-1" max="40" class="level h5 push-right">
+                        </span>
+
+                        <span class="col-4 bold border-bottom-1 h5 label line-height-2 text-right">
+                            <span class="push-left">XP: </span>
+                        </span>
+
+                        <span class="col-8 border-bottom-1">
+                            <input type="number" value="-1" min="-1" max="999999" class="xp h5 push-right">
+                        </span>
+                    </span>
+
+                    <span class="col-3 hard">
+                        <span class="col-4 bold border-bottom-1 h5 label line-height-2 text-right">
+                            <span class="push-left">Level: </span>
+                        </span>
+
+                        <span class="col-8 border-bottom-1">
+                            <input type="number" value="-1" min="-1" max="40" class="level h5 push-right">
+                        </span>
+
+                        <span class="col-4 bold border-bottom-1 h5 label line-height-2 text-right">
+                            <span class="push-left">XP: </span>
+                        </span>
+
+                        <span class="col-8 border-bottom-1">
+                            <input type="number" value="-1" min="-1" max="999999" class="xp h5 push-right">
+                        </span>
+                    </span>
+
+                    <span class="col-3 elite">
+                        <span class="col-4 bold border-bottom-1 h5 label line-height-2 text-right">
+                            <span class="push-left">Level: </span>
+                        </span>
+
+                        <span class="col-8 border-bottom-1">
+                            <input type="number" value="-1" min="-1" max="40" class="level h5 push-right">
+                        </span>
+
+                        <span class="col-4 bold border-bottom-1 h5 label line-height-2 text-right">
+                            <span class="push-left">XP: </span>
+                        </span>
+
+                        <span class="col-8 border-bottom-1">
+                            <input type="number" value="-1" min="-1" max="999999" class="xp h5 push-right">
+                        </span>
+                    </span>
+                </span>
+
+                <span class="epic">
+                    <span class="row bold border-bottom-1 h4 label line-height-2 text-center">Epic</span>
+
+                    <span class="bold border-bottom-1 border-right-1 difficulty h4 label line-height-2 text-center">Casual</span>
+                    <span class="bold border-bottom-1 border-right-1 difficulty h4 label line-height-2 text-center">Normal</span>
+                    <span class="bold border-bottom-1 border-right-1 difficulty h4 label line-height-2 text-center">Hard</span>
+                    <span class="bold border-bottom-1 border-right-1 difficulty h4 label line-height-2 text-center last">Elite</span>
+
+                    <span class="col-3 casual">
+                        <span class="col-4 bold h5 label line-height-2 text-right">
+                            <span class="push-left">Level: </span>
+                        </span>
+
+                        <span class="col-8">
+                            <input type="number" value="-1" min="-1" max="40" class="level h5 push-right">
+                        </span>
+
+                        <span class="col-4 bold h5 label line-height-2 text-right">
+                            <span class="push-left">XP: </span>
+                        </span>
+
+                        <span class="col-8">
+                            <input type="number" value="-1" min="-1" max="999999" class="xp h5 push-right">
+                        </span>
+                    </span>
+
+                    <span class="col-3 normal">
+                        <span class="col-4 bold h5 label line-height-2 text-right">
+                            <span class="push-left">Level: </span>
+                        </span>
+
+                        <span class="col-8">
+                            <input type="number" value="-1" min="-1" max="40" class="level h5 push-right">
+                        </span>
+
+                        <span class="col-4 bold h5 label line-height-2 text-right">
+                            <span class="push-left">XP: </span>
+                        </span>
+
+                        <span class="col-8">
+                            <input type="number" value="-1" min="-1" max="999999" class="xp h5 push-right">
+                        </span>
+                    </span>
+
+                    <span class="col-3 hard">
+                        <span class="col-4 bold h5 label line-height-2 text-right">
+                            <span class="push-left">Level: </span>
+                        </span>
+
+                        <span class="col-8">
+                            <input type="number" value="-1" min="-1" max="40" class="level h5 push-right">
+                        </span>
+
+                        <span class="col-4 bold h5 label line-height-2 text-right">
+                            <span class="push-left">XP: </span>
+                        </span>
+
+                        <span class="col-8">
+                            <input type="number" value="-1" min="-1" max="999999" class="xp h5 push-right">
+                        </span>
+                    </span>
+
+                    <span class="col-3 elite">
+                        <span class="col-4 bold h5 label line-height-2 text-right">
+                            <span class="push-left">Level: </span>
+                        </span>
+
+                        <span class="col-8">
+                            <input type="number" value="-1" min="-1" max="40" class="level h5 push-right">
+                        </span>
+
+                        <span class="col-4 bold h5 label line-height-2 text-right">
+                            <span class="push-left">XP: </span>
+                        </span>
+
+                        <span class="col-8">
+                            <input type="number" value="-1" min="-1" max="999999" class="xp h5 push-right">
+                        </span>
+                    </span>
+                </span>
+            </article>
+        </template>
     </body>
 </html>
