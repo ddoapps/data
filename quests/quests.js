@@ -45,29 +45,8 @@
                 const id = nameElement.value.toLowerCase().replace( /[^a-z]/g, '' ).trim();
 
                 if ( id && !this.quests.find( quest => quest.id === id ) ) {
-                    const newQuestData = { id };
-
-                    newQuestData.name = nameElement.value.trim();
-                    newQuestData.duration = questElement.querySelector( '.duration' ).value;
-
-                    [ 'heroic', 'epic' ].forEach( type => {
-                        const questTypeElement = questElement.querySelector( `.${type}` );
-
-                        [ 'casual', 'normal', 'hard', 'elite' ].forEach( difficulty => {
-                            const level = parseInt( questTypeElement.querySelector( `.${difficulty} .level` ).value, 10 );
-                            const xp = parseInt( questTypeElement.querySelector( `.${difficulty} .xp` ).value, 10 );
-
-                            if ( level > 0 && xp > -1 ) {
-                                newQuestData[ type ] = newQuestData[ type ] || {};
-                                newQuestData[ type ][ difficulty ] = { level, xp };
-                            }
-                        } );
-                    } );
-
-                    this.quests.push( new Quest( newQuestData ) );
-                    this.quests.sort( ( a, b ) => a.name.localeCompare( b.name ) );
+                    this.updateQuest( questElement, id );
                     this.rebuildQuestSelect();
-
                     document.querySelector( '.clear-quest' ).click();
                 }
             } );
@@ -97,6 +76,15 @@
                 clearTimeout( throttle );
 
                 throttle = setTimeout( () => this.displayExistingQuestById( e.target.value ), 300 );
+            } );
+        }
+
+        bindOnQuestUpdate () {
+            document.querySelector( '.update-quest' ).addEventListener( 'click', _ => {
+                const questElement = document.querySelector( '.existing-quest .quest' );
+                const id = questElement.dataset.id;
+
+                this.updateQuest( questElement, id );
             } );
         }
 
@@ -149,6 +137,7 @@
             this.bindOnQuestSelection();
             this.bindOnQuestClear();
             this.bindOnQuestAdd();
+            this.bindOnQuestUpdate();
             this.bindOnExportQuests();
         }
 
@@ -168,6 +157,33 @@
             } );
 
             questSelect.appendChild( fragment );
+        }
+
+        updateQuest ( questElement, id ) {
+            const questData = { id };
+
+            questData.name = questElement.querySelector( 'input.name' ).value.trim();
+            questData.duration = questElement.querySelector( '.duration' ).value;
+
+            [ 'heroic', 'epic' ].forEach( type => {
+                const questTypeElement = questElement.querySelector( `.${type}` );
+
+                [ 'casual', 'normal', 'hard', 'elite' ].forEach( difficulty => {
+                    const level = parseInt( questTypeElement.querySelector( `.${difficulty} .level` ).value, 10 );
+                    const xp = parseInt( questTypeElement.querySelector( `.${difficulty} .xp` ).value, 10 );
+
+                    if ( level > 0 && xp > -1 ) {
+                        questData[ type ] = questData[ type ] || {};
+                        questData[ type ][ difficulty ] = { level, xp };
+                    }
+                } );
+            } );
+
+            const quest = new Quest( questData );
+            this.quests = this.quests.filter( it => it.id !== quest.id );
+
+            this.quests.push( quest );
+            this.quests.sort( ( a, b ) => a.name.localeCompare( b.name ) );
         }
     }
 
