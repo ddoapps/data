@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <title>DDO Apps - Manage Packs</title>
+
+        <link rel="stylesheet" href="../global.css">
+        <link rel="stylesheet" href="./packs.css">
+        <script src="../global.js" defer></script>
+        <script src="./packs.js" defer></script>
+    </head>
+
+    <body class="app">
+        <header class="app-header">
+            <img src="//ddoapps.github.io/questTracker/assets/images/icons/d20Icon.svg" alt="DDO Apps Logo" class="logo">
+
+            <h1 class="title d-inline-block vertical-align-top">
+                <span class="h2">DDO Apps</span>
+                <span class="h4 vertical-align-middle"> - </span>
+                <span class="h3">Manage Packs</span>
+            </h1>
+        </header>
+
+        <main class="app-content h0">
+            <article class="container push-down">
+                <section class="col-4 vertical-align-top">
+                    <div>
+                        <label class="h4 line-height-1-5 push-right">Filter: </label>
+                        <input type="text" value="" id="filter" class="h4 line-height-1-5 push-right">
+                        <button id="export" class="h4 line-height-1-5 push-right">Export Packs</button>
+                    </div>
+
+                    <div>
+                        <select size="20" id="packs" class="h4 line-height-1-5 push-right">
+                            <option value=""></option>
+                        </select>
+                    </div>
+                </section>
+
+                <section class="display col-8 vertical-align-top">
+                    <span class="existing-packs col-12"></span>
+
+                    <div class="col-12 push-down">
+                        <button class="update-pack">Update Pack</button>
+                    </div>
+
+                    <p class="col-12 h3 pt-1">Add New Pack</p>
+
+                    <span class="new-pack col-12"></span>
+
+                    <div class="col-12 push-down">
+                        <button class="add-pack">Add Pack</button>
+                        <button class="clear-pack push-right">Clear</button>
+                    </div>
+                </section>
+            </article>
+        </main>
+
+        <template data-id="pack">
+            <article class="pack container d-inline-block" data-id="">
+                <span class="row border-bottom-1 h3 label inline-height-1-5">
+                    <span class="name push-right"></span>
+                </span>
+
+                <span class="col-12">
+                    <span class="col-2 bold border-bottom-1 h5 label line-height-2 text-right">
+                        <span class="push-left">Name: </span>
+                    </span>
+
+                    <span class="col-10 border-bottom-1">
+                        <input type="text" class="name h5 push-right">
+                    </span>
+
+                    <span class="pack-quests">
+                        <span class="pack-quest">
+                            <span class="col-2 bold border-bottom-1 h5 label line-height-2 text-right">
+                                <span class="push-left">Quest: </span>
+                            </span>
+                
+                            <span class="col-10 border-bottom-1">
+                                <input type="text" list="questList" class="quest-name h5 push-right">
+                                <button class="add-quest push-right">Add</button>
+                            </span>
+                        </span>
+                    </span>
+                </span>
+            </article>
+        </template>
+
+        <template data-id="packQuest">
+            <span class="pack-quest">
+                <span class="col-2 bold border-bottom-1 h5 label line-height-2 text-right">
+                    <span class="push-left">Quest: </span>
+                </span>
+
+                <span class="col-10 border-bottom-1">
+                    <input type="text" list="questList" class="quest-name h5 push-right">
+                    <button class="add-quest push-right">Add</button>
+                    <button class="remove-quest push-right">Remove</button>
+                </span>
+            </span>
+        </template>
+
+        <datalist id="questList"></datalist>
+    </body>
+</html>

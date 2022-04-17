@@ -1,0 +1,30 @@
+.new-pack .pack > .row:first-child { display: none; }
+
+.pack {
+    background-color: var(--color-white);
+    border: 1px solid var(--color-white);
+    width: 40vw;
+}
+
+.pack input {
+    text-indent: 4px;
+    width: 400px
+}
+
+.pack .label {
+    background-color: var(--color-black);
+    color: var(--color-white);
+}
+
+#packs {
+    height: calc(100vh - 111px);
+    min-width: 25vw;
+}
+
+#packs option {
+    padding-top: 4px;
+    padding-right: 8px;
+    text-indent: 4px;
+}
+
+#packs option:nth-child(2n) { background-color: var(--color-white-1); }
