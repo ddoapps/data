@@ -1,18 +1,15 @@
 {
 	"author": "github.com/ddoapps/data",
 	"dependencies": {
-		"serve": "14.2"
+		"@types/node": "20.11",
+		"tsx": "4.7",
+		"typescript": "5.3"
 	},
 	"description": "",
 	"license": "MIT",
 	"name": "data",
 	"scripts": {
-		"install-all": "npm install -g npm@latest && npm install",
-		"install-at-work": "npm config set strict-ssl false && npm run-script install-all && npm config set strict-ssl true",
-		"server": "serve -p 8443 .",
-		"update-all": "npm install -g npm@latest && npm update",
-		"update-all-at-work": "npm config set strict-ssl false && npm run-script update-all && npm config set strict-ssl true",
-		"update-at-work": "npm config set strict-ssl false && npm update && npm config set strict-ssl true"
+		"editor": "rm -rf projects/editor/dist && tsc -p projects/editor && node projects/editor/dist/index.js"
 	},
 	"version": "1.0.0"
 }
