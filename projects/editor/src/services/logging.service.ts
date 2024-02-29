@@ -1,18 +1,13 @@
-type LogType = 'info' | 'error';
-type optional = undefined | null;
+function log ( message: string | Unknown, type: LogType ): void {
+    const timestamp = new Date().toISOString().replace( /[TZ]/g, ' ' ).trim();
 
-export class LoggingService {
-    private static log ( message: string | optional, type: LogType ): void {
-        const timestamp = new Date().toISOString().replace( /[TZ]/g, ' ' ).trim();
+    console.log( `[${ timestamp }][${ type }] ${ message }` );
+}
 
-        console.log( `[${ timestamp }][${ type.toUpperCase() }] ${ message }` );
-    }
+export function error ( message: string | Unknown ): void {
+    log( message, 'ERROR' );
+}
 
-    static error ( message: string | optional ): void {
-        LoggingService.log( message, 'error' );
-    }
-
-    static info ( message: string | optional ): void {
-        LoggingService.log( message, 'info' );
-    }
-};
+export function info ( message: string | Unknown ): void {
+    log( message, 'INFO' );
+}

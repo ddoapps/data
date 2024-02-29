@@ -2,7 +2,6 @@
 	"author": "github.com/ddoapps/data",
 	"dependencies": {
 		"@types/node": "20.11",
-		"tsx": "4.7",
 		"typescript": "5.3"
 	},
 	"description": "",
