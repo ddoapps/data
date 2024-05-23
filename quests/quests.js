@@ -88,6 +88,26 @@
             } );
         }
 
+        bindOnXPChange () {
+            document.querySelectorAll( '.xp' ).forEach( input => {
+                input.addEventListener( 'paste', e => {
+                    try {
+                        let newValue = e.clipboardData.getData( 'Text' );
+
+                        if ( new RegExp( '[^0-9]', 'g' ).test( newValue ) ) {
+                            newValue = newValue.replace( /[^0-9]/g, '' );
+
+                            e.stopImmediatePropagation();
+                            e.preventDefault();
+
+                            e.target.value = newValue;
+                        }
+                    } catch ( ignored ) {
+                    }
+                } );
+            } );
+        }
+
         displayExistingQuestById ( id ) {
             const questElement = document.querySelector( '.display .quest' );
             const quest = this.quests.find( it => it.id === id ) || new Quest( {} );
@@ -139,6 +159,7 @@
             this.bindOnQuestAdd();
             this.bindOnQuestUpdate();
             this.bindOnExportQuests();
+            this.bindOnXPChange();
         }
 
         rebuildQuestSelect () {
